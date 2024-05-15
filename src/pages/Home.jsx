@@ -1,3 +1,4 @@
+/* eslint-disable react/prop-types */
 import { Tabs, TabList, Tab, TabPanels } from "@chakra-ui/react";
 
 import { LiaHotelSolid } from "react-icons/lia";
@@ -7,7 +8,7 @@ import { TbReplace } from "react-icons/tb";
 import FlightTabPanel from "../components/FlightTabPanel";
 import Button from "../components/Button";
 
-const Home = () => {
+const Home = ({ showSearchData, setShowSearchData }) => {
   return (
     <div
       className={`bg-[url('./assets/home-bg.png')] bg-no-repeat bg-center bg-cover w-full h-[800px] lg:min-h-screen lg:max-h-full grid items-center justify-center `}
@@ -47,7 +48,9 @@ const Home = () => {
 
           {/* search button */}
           <div className="absolute -bottom-9 left-[30%] md:left-[40%] 3xl:left-[45%] ">
-            <Button>Search Now</Button>
+            <span onClick={() => setShowSearchData(!showSearchData)}>
+              <Button>{showSearchData ? "Hide Data" : "Search Now"}</Button>
+            </span>
           </div>
         </div>
       </div>
